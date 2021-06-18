@@ -1,40 +1,17 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
+mod models;
+use models::api_model::*;
+
+mod ssps;
+use ssps::zebra::*;
+
+mod controllers;
+use controllers::ssp_controller::*;
+
 #[get("/echo")]
 async fn echo(req_body: String) -> impl Responder {
     HttpResponse::Ok().body(req_body)
-}
-
-// common
-struct BidRequest {
-    body: String,
-}
-struct BidResponse {
-    body: String,
-}
-
-struct SspZebra {}
-
-trait SspApi<HttpReq, HttpRes> {
-    fn parse(body: HttpReq) -> BidRequest;
-    fn format(res: BidResponse) -> HttpRes;
-}
-
-impl SspApi<String, String> for SspZebra {
-    fn parse(body: String) -> BidRequest {
-        BidRequest { body }
-    }
-    fn format(res: BidResponse) -> String {
-        res.body
-    }
-}
-
-struct SspController {}
-
-impl SspController {
-    fn process(req: BidRequest) -> BidResponse {
-        BidResponse { body: req.body }
-    }
 }
 
 #[post("/rtb/zebra")]
