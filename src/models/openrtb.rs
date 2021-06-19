@@ -5,9 +5,14 @@ use serde::{Deserialize, Serialize};
 pub struct OpenRtbRequest {
     pub id: String,
 
-    #[serde(default = "default_as_false")]
-    #[serde(deserialize_with = "bool_from_int")]
-    pub test: bool,
+    #[serde(default = "default_as_zero")]
+    pub test: i64,
+
+    pub imp: Option<Imp>,
+    pub site: Option<Site>,
+    pub app: Option<App>,
+    pub device: Option<Device>,
+    pub user: Option<User>,
 }
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Imp {}
