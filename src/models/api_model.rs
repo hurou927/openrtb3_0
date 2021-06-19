@@ -1,5 +1,7 @@
+use crate::models::openrtb;
+
 pub struct BidRequest {
-    pub body: String,
+    pub id: String,
 }
 
 pub struct BidResponse {

@@ -7,7 +7,7 @@ impl SspApi for SspZebra {
     type HttpRes = String;
 
     fn parse(body: String) -> BidRequest {
-        BidRequest { body }
+        BidRequest { id: body }
     }
     fn format(res: BidResponse) -> String {
         res.body
