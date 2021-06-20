@@ -1,8 +1,18 @@
+use crate::errors::error::*;
 use crate::models::api_model::*;
 use crate::models::openrtb::*;
-use serde_json;
 
 pub struct SspZebra {}
+
+fn parse(raw: &str) -> Result<OpenRtbRequest, ServiceError> {
+    match serde_json::from_str(raw) {
+        Ok(s) => Ok(s),
+        Err(e) => Err(ServiceError {
+            code: ErrorCode::RequestError,
+            detail: "hoge".into(),
+        }),
+    }
+}
 
 impl SspApi for SspZebra {
     type HttpReq = String;
@@ -14,5 +24,13 @@ impl SspApi for SspZebra {
     }
     fn format(res: BidResponse) -> String {
         res.body
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
     }
 }

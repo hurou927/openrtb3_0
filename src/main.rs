@@ -9,6 +9,9 @@ use ssps::zebra::*;
 mod controllers;
 use controllers::ssp_controller::*;
 
+mod errors;
+// use errors::error::*;
+
 #[get("/echo")]
 async fn echo(req_body: String) -> impl Responder {
     HttpResponse::Ok().body(req_body)
