@@ -29,8 +29,21 @@ impl SspApi for SspZebra {
 
 #[cfg(test)]
 mod tests {
+    use crate::models::openrtb::*;
+
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn success_to_parse() {
+        let raw_request = "{\"id\":\"bid\"}";
+        let expected = OpenRtbRequest {
+            id: "bid".into(),
+            test: 0,
+            imp: None,
+            site: None,
+            app: None,
+            device: None,
+            user: None,
+        };
+        let parsed: OpenRtbRequest = serde_json::from_str(raw_request).unwrap();
+        assert_eq!(parsed, expected);
     }
 }
