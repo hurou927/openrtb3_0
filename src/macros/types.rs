@@ -19,7 +19,8 @@ macro_rules! rtb_type_loose {
 #[macro_export]
 macro_rules! rtb_type {
     ($type_name: ident, $other_th_value:expr, $($name: ident = $v:expr);*) => {
-pub enum $type_name {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+enum $type_name {
 $(
     $name,
 )*
@@ -80,20 +81,36 @@ impl<'de> serde::Deserialize<'de> for $type_name {
     };
 }
 
-//rtb_type! {Apt, 500, Hoge = 1; Boo = 3}
-
-//rtb_type_loose! {Yum, Hoge = 1; Boo = 3}
-// #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-
 #[cfg(test)]
 mod test {
     #[macro_use]
     use super::*;
-    rtb_type_with_custom! { T, A = 1; B = 2}
+    rtb_type_with_custom! { TypeWithCustom, One = 1; Eight = 8}
+
+    #[test]
+    fn base() {
+        assert!(TypeWithCustom::One.value() == 1);
+        assert!(TypeWithCustom::Eight.value() == 8);
+        assert!(TypeWithCustom::VendorSpecificCode(560).value() == 560);
+
+        assert!(TypeWithCustom::from_value_opt(1) == Some(TypeWithCustom::One));
+        assert!(TypeWithCustom::from_value_opt(8) == Some(TypeWithCustom::Eight));
+        assert!(TypeWithCustom::from_value_opt(499) == None);
+        assert!(
+            TypeWithCustom::from_value_opt(500) == Some(TypeWithCustom::VendorSpecificCode(500))
+        );
+    }
+
     #[test]
     fn json() -> serde_json::Result<()> {
-        assert!(T::A.value() == 1);
-        assert!(T::B.value() == 2);
+        assert!(serde_json::from_str::<TypeWithCustom>("3").is_err());
+        assert!(serde_json::from_str::<TypeWithCustom>("499").is_err());
+        assert!(serde_json::from_str::<TypeWithCustom>("1").unwrap() == TypeWithCustom::One);
+        assert!(serde_json::from_str::<TypeWithCustom>("8").unwrap() == TypeWithCustom::Eight);
+        assert!(
+            serde_json::from_str::<TypeWithCustom>("500").unwrap()
+                == TypeWithCustom::VendorSpecificCode(500)
+        );
         Ok(())
     }
 }

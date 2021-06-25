@@ -1,6 +1,7 @@
 #[macro_export]
 macro_rules! rtb_type_strict {
     ($type_name: ident, $($name: ident = $v:expr);*) => {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum $type_name {
 $(
     $name,
@@ -58,15 +59,29 @@ impl<'de> serde::Deserialize<'de> for $type_name {
 
     };
 }
+
 #[cfg(test)]
 mod test {
     #[macro_use]
     use super::*;
-    rtb_type_strict! { T, A = 1; B = 2}
+    rtb_type_strict! { TypeStrict, One = 1; Two = 2}
+
+    #[test]
+    fn base() {
+        assert!(TypeStrict::One.value() == 1);
+        assert!(TypeStrict::Two.value() == 2);
+        assert!(TypeStrict::from_value_opt(1) == Some(TypeStrict::One));
+        assert!(TypeStrict::from_value_opt(2) == Some(TypeStrict::Two));
+        assert!(TypeStrict::from_value_opt(500) == None);
+    }
+
     #[test]
     fn json() -> serde_json::Result<()> {
-        assert!(T::A.value() == 1);
-        assert!(T::B.value() == 2);
+        assert!(serde_json::from_str::<TypeStrict>("3").is_err());
+        assert!(serde_json::from_str::<TypeStrict>("499").is_err());
+        assert!(serde_json::from_str::<TypeStrict>("500").is_err());
+        assert!(serde_json::from_str::<TypeStrict>("1").unwrap() == TypeStrict::One);
+        assert!(serde_json::from_str::<TypeStrict>("2").unwrap() == TypeStrict::Two);
         Ok(())
     }
 }
