@@ -273,6 +273,7 @@ version = "0.1.0"
 dependencies = [
  "actix-web",
  "derive_more",
+ "iso-4217",
  "serde",
  "serde_json",
  "serde_repr",
@@ -805,6 +806,12 @@ dependencies = [
  "winapi 0.3.9",
  "winreg",
 ]
+
+[[package]]
+name = "iso-4217"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b965e855a2f422a26ac44d8b5ef5a2d16802b2cf21530363a6d2fcc015ab8f7d"
 
 [[package]]
 name = "itoa"

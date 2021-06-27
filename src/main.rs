@@ -13,7 +13,8 @@ mod errors;
 // use errors::error::*;
 mod openrtb3;
 
-mod macros;
+mod rtb_type_macros;
+mod rtb_type_strict_macros;
 
 #[get("/echo")]
 async fn echo(req_body: String) -> impl Responder {
