@@ -3,14 +3,18 @@ use serde::{Deserialize, Serialize};
 use super::currency::*;
 use super::seatbid::*;
 
+use super::non_bid_reason_code::*;
+
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Response {
     pub id: String,
     pub bidid: Option<String>,
-    pub nbr: Option<i32>,
+    #[serde(rename(serialize = "nbr", deserialize = "nbr"))]
+    pub non_bid_reason_code: Option<NonBidReasonCode>,
     #[serde(default)]
     pub cur: Currency,
-    pub cdata: Option<String>,
+    #[serde(rename(serialize = "cdata", deserialize = "cdata"))]
+    pub cookie_data: Option<String>,
     pub seatbid: Vec<Seatbid>,
     pub ext: Option<ResponseExt>,
 }

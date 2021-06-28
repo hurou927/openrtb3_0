@@ -13,5 +13,5 @@ serde = "1.0"
 derive_more = "0.99.0"
 serde_repr = "0.1"
 iso-4217 = "0.1"
-
+isolang = "1.0"
 
