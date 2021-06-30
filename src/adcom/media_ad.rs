@@ -1,11 +1,11 @@
-use super::adcom_audio::*;
-use super::adcom_audit::*;
-use super::adcom_creative_attribute::*;
-use super::adcom_display::*;
-use super::adcom_media_rating::*;
-use super::adcom_video::*;
-use super::bool::*;
-use super::language::*;
+use super::audio::*;
+use super::audit::*;
+use super::creative_attribute::*;
+use super::display::*;
+use super::media_rating::*;
+use super::video::*;
+use crate::openrtb3::bool::*;
+use crate::openrtb3::language::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]

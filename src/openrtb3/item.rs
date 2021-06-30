@@ -1,10 +1,10 @@
 use serde::{Deserialize, Serialize};
 
-use super::adcom_spec::*;
 use super::currency::*;
 use super::deal::*;
 use super::delivery_method::*;
 use super::metric::*;
+use crate::adcom::spec::*;
 
 fn default_qty() -> i32 {
     1

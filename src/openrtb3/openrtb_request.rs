@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::adcom_context::*;
+use crate::adcom::context::*;
 use super::auction_type::*;
 use super::bool::*;
 use super::currency::*;

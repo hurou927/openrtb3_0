@@ -1,4 +1,4 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct Display {}
+pub struct Native {}

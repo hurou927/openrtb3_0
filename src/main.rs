@@ -12,6 +12,7 @@ use controllers::ssp_controller::*;
 mod errors;
 // use errors::error::*;
 mod openrtb3;
+mod adcom;
 
 mod rtb_type_macros;
 mod rtb_type_strict_macros;

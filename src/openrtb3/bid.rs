@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::adcom_media_ad::*;
+use crate::adcom::media_ad::*;
 use super::bid_macro::*;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]

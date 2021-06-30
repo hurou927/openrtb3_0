@@ -1,12 +1,3 @@
-pub mod adcom_audio;
-pub mod adcom_audit;
-pub mod adcom_context;
-pub mod adcom_creative_attribute;
-pub mod adcom_display;
-pub mod adcom_media_ad;
-pub mod adcom_media_rating;
-pub mod adcom_spec;
-pub mod adcom_video;
 pub mod auction_type;
 pub mod bid;
 pub mod bid_macro;
