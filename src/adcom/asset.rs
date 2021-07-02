@@ -1,7 +1,10 @@
 use crate::openrtb3::bool::*;
 use serde::{Deserialize, Serialize};
 
-use super::{image_asset::ImageAsset, link_asset::LinkAsset, title_asset::TitleAsset};
+use super::{
+    data_asset::DataAsset, image_asset::ImageAsset, link_asset::LinkAsset, title_asset::TitleAsset,
+    video_asset::VideoAsset,
+};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Asset {
