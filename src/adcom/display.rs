@@ -2,7 +2,6 @@ use serde::{Deserialize, Serialize};
 
 use super::api_framework::*;
 use super::banner::*;
-use super::creative_subtype::*;
 use super::event::*;
 use super::native::*;
 
@@ -10,7 +9,7 @@ use super::native::*;
 pub struct Display {
     mime: Option<String>,
     api: Vec<ApiFramework>,
-    ctype: Option<CreativeSubtype>,
+    ctype: Option<super::creative_subtype::Display>,
     w: Option<u32>,
     h: Option<u32>,
     wratio: Option<u32>,
