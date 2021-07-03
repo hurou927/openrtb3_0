@@ -71,3 +71,4 @@ pub mod video;
 pub mod video_asset;
 pub mod video_placement;
 pub mod volume_normalization_mode;
+pub mod server_side_ad_insertion_type;
