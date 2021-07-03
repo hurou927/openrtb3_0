@@ -77,3 +77,4 @@ pub mod display_placement_type;
 pub mod size_unit;
 pub mod amphtml_rendering_type;
 pub mod list_type;
+pub mod image_asset_format;
