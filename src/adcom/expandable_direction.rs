@@ -1,9 +1,10 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
-ExpandableDirection,
-500,
-Left=1
+rtb_type_strict! {
+    ExpandableDirection,
+    Left=1;
+    Right=2;
+    Up=3;
+    Down=4;
+    FullScreen=5
 }
-
