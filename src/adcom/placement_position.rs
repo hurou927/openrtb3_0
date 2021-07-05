@@ -1,9 +1,12 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 PlacementPosition,
-500,
-AboveTheFold=1
+    AboveTheFold=1;
+    Locked=2;
+    BelowTheFold=3;
+    Header=4;
+    Footer=5;
+    Slidebar=6;
+    Fullscreen=7
 }
-

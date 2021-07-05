@@ -1,9 +1,10 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 PlacementSubTypesVideo,
-500,
-InStream=1
+InStream=1;
+InBanner=2;
+InArticle=3;
+InFeed=4;
+InterstitialSliderFloating=5
 }
-

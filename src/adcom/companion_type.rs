@@ -1,9 +1,8 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 CompanionType,
-500,
-StaticResource=1
+StaticResource=1;
+HtmlResource=2;
+IframeResource=3
 }
-
