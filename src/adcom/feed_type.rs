@@ -1,9 +1,8 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 FeedType,
-500,
-MusicService=1
+MusicService=1;
+FmAmBradcast = 2;
+Podcast = 3
 }
-

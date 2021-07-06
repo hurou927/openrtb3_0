@@ -81,3 +81,4 @@ pub mod video;
 pub mod video_asset;
 pub mod video_placement;
 pub mod volume_normalization_mode;
+pub mod dooh_placement_type;

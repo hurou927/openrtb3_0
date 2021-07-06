@@ -1,9 +1,10 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
-volumeNormalizationMode,
-500,
-None=0
+rtb_type_strict! {
+VolumeNormalizationMode,
+None=0;
+AdvolumeAverageNormalizedtoContent=1;
+AdVolumePeakNormalizedtoContent=2;
+AdLoudnessNormalizedToContent=3;
+CustomVolumeNormalization=4
 }
-
