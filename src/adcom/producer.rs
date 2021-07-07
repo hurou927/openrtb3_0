@@ -7,7 +7,7 @@ pub struct Producer {
     id: Option<String>,
     name: Option<String>,
     domain: Option<String>,
-    cat: Optino<String>,
+    cat: Option<String>,
     cattax: Option<category_taxonomy::CategoryTaxonomy>,
     ext: Option<ProducerExt>,
 }
