@@ -1,9 +1,8 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 LocationType,
-500,
-Gps=1
+Gps=1;
+IpAddress=2;
+UserProvided=3
 }
-

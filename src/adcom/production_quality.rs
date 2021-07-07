@@ -1,9 +1,8 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 ProductionQuality,
-500,
-ProfessionallyProduced=1
+ProfessionallyProduced=1;
+Prosumer = 2;
+UserGenerated = 3
 }
-

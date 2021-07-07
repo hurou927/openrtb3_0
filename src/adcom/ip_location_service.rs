@@ -1,9 +1,9 @@
+use crate::rtb_type_strict;
 
-use crate::rtb_type;
-
-rtb_type! {
+rtb_type_strict! {
 IpLocationService,
-500,
-Ip2Location=1
+    Ip2Location = 1;
+    Neustar = 2;
+    MaxMind = 3;
+    NetAcuity = 4
 }
-
