@@ -7,9 +7,6 @@ Allowed=2
 }
 
 impl ListType {
-    pub fn default_block() -> Self {
-        Self::Block
-    }
     pub fn default_allowed() -> Self {
         Self::Allowed
     }

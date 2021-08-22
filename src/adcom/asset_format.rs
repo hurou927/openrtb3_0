@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 use super::{
     data_asset_format::DataAssetFormat, image_asset_format::ImageAssetFormat,
-    title_asset::TitleAsset, title_asset_format::TitleAssetFormat, video_placement::VideoPlacement,
+    title_asset_format::TitleAssetFormat, video_placement::VideoPlacement,
 };
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]

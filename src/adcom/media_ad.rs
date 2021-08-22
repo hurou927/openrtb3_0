@@ -3,7 +3,6 @@ use super::audit::*;
 use super::creative_attribute::*;
 use super::display::*;
 use super::media_rating::*;
-use super::native::*;
 use super::video::*;
 use crate::openrtb3::bool::*;
 use crate::openrtb3::language::*;

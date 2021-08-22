@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{display, display_placement};
+use super::display_placement;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Companion {

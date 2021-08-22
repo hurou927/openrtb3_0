@@ -1,4 +1,3 @@
-use super::api_framework;
 use super::api_framework::ApiFramework;
 use super::event_tracking_method::EventTrackingMethod;
 use super::event_type::EventType;

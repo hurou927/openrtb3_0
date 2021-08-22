@@ -8,7 +8,7 @@ pub enum DomainSpec {
 impl DomainSpec {
     pub fn value(&self) -> &str {
         match self {
-            Adcom => "adcom",
+            &Self::Adcom => "adcom",
         }
     }
 }
